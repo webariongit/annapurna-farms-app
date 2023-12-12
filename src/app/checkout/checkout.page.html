@@ -1,0 +1,230 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-app-title">Checkout</ion-title>
+    <ion-icon
+      class="pr-3"
+      color="light"
+      style="visibility: hidden"
+      slot="end"
+      name="ellipsis-vertical"
+    ></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" color="light">
+  <!-- <div class="bg-white mt-3">
+    <div class="p-2">
+      <div class="flex justify-between p-1">
+        <ion-label class="text-black font-bold text-md pl-2">Delivery Option</ion-label>
+      </div>
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-item lines="none" class="border text-sm border-gray-0 hover:border-green-500 rounded-md"  (click)="selectOption('home')">
+            <ion-radio style="color: #06a058;" [value]="'home'"  name="selectionaddress"></ion-radio>
+            <ion-label class="text-black text-xs hover:text-green-600 pl-2">Home Delivery</ion-label>
+          </ion-item>
+        </ion-col>
+      
+        <ion-col size="6">
+          <ion-item lines="none" class="border text-sm border-gray-0 hover:border-green-500 rounded-md" (click)="selectOption('takeaway')">
+            <ion-radio style="color: #06a058;" [value]="'takeaway'"></ion-radio>
+            <ion-label class="pl-2 text-xs">Take Away</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      
+      <div [ngSwitch]="selectedOption">
+        <div *ngSwitchCase="'home'">Home Delivery is selected</div>
+        <div *ngSwitchCase="'takeaway'">Take Away is selected</div>
+        <div *ngSwitchDefault>Select an option</div>
+      </div>
+      
+      
+    </div>
+
+  </div> -->
+
+  <!-- <div class="p-3" align="center">
+    <p>Delivery Charge:₹ 0</p>
+  </div> -->
+
+  <!-- <div class="bg-white"> -->
+
+    <!-- <div class="p-3 pb-2">
+       <div class="flex justify-between p-1">
+        <ion-label class="text-black font-bold text-md pl-2">Delivery To</ion-label>
+        <p style="color: #06a058;" class="text-sm font-semibold pr-2"> <ion-icon name="add"></ion-icon> &nbsp;Add New
+        </p>
+      </div> -->
+
+      <!-- <div class="rounded-md bg-gray-100 p-4">
+        <div class="flex justify-start">
+          <ion-icon style="color: #06a058;" class="text-lg" name="grid"></ion-icon> <ion-label
+            class="text-black font-bold text-md pl-2">Others</ion-label>
+        </div>
+        <div class="flex justify-between">
+          <p class="text-gray-400 text-sm">Home address </p>
+          <ion-icon class="text-black text-lg" name="chevron-down"></ion-icon>
+        </div>
+      </div>  -->
+
+
+    <!-- <ion-row>
+        <ion-col size="12" class="mt-2">
+          <div
+            class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg border border-green-500 bg-clip-padding text-base font-normal">
+            <ion-item lines="none" class="p-1">
+              <ion-input placeholder="Delivery to home  address"></ion-input>
+            </ion-item>
+          </div>
+        </ion-col> -->
+
+        <!-- <ion-col size="6" class="mt-2">
+          <div
+            class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg border border-green-500 bg-clip-padding text-base font-normal">
+            <ion-item lines="none" class="p-1">
+              <ion-input placeholder="House"></ion-input>
+            </ion-item>
+          </div>
+        </ion-col>
+
+        <ion-col size="6" class="mt-2">
+          <div
+            class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg border border-green-500 bg-clip-padding text-base font-normal">
+            <ion-item lines="none" class="p-1">
+              <ion-input placeholder="Floor"></ion-input>
+            </ion-item>
+          </div>
+        </ion-col> -->
+      <!-- </ion-row>  -->
+
+
+    <!-- </div> -->
+
+  <!-- </div> -->
+
+
+  <!-- <div class="bg-white mt-4">
+
+    <div class="p-3 pb-2">
+      <div class="flex justify-between p-1 border-b border-gray-100 ">
+        <ion-label class="text-black font-bold text-md pl-2">Choose Payment Method</ion-label>
+        <p style="color: #06a058;" class="text-sm font-semibold pr-2"> <ion-icon name="create-outline"></ion-icon>
+        </p>
+      </div>
+
+      <div class="flex justify-between p-1 mt-2 ">
+        <ion-label class="text-gray-400  text-sm pl-2"><ion-icon class="text-gray-600" name="cash"></ion-icon> Cash on
+          Delivery</ion-label>
+        <p style="color: #06a058;" class="text-sm font-semibold pr-2">₹{{totalamount}}
+        </p>
+      </div>
+
+
+
+
+    </div>
+
+  </div> -->
+
+
+  <div class="bg-white mt-4">
+
+    <div class="p-3 pb-2">
+      <div class="flex justify-between p-1 border-b border-gray-100 ">
+        <ion-label class="text-black font-bold text-md pl-2">Delivery to Address</ion-label>
+      </div>
+
+      <ion-row>
+        <ion-col size="12" class="mt-2">
+          <div
+            class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg border border-green-500 bg-clip-padding text-base font-normal">
+            <ion-item lines="none" class="p-1">
+              <ion-textarea rows="4" col="12"   [(ngModel)]="address" placeholder="Enter Your delivery address"></ion-textarea>
+            </ion-item>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <div class="p-2">
+        <div class="flex justify-between  mt-1">
+          <p class="text-black font-bold text-sm">Item Price</p>
+          <p class="text-black font-bold text-sm">₹ {{itempriceone}}</p>
+        </div>
+  
+        <div class="flex justify-between mt-1">
+          <p class="text-gray-400 text-sm">Discount</p>
+          <p class="text-gray-400  text-sm">₹ {{coupandiscount}}</p>
+        </div>
+  
+        <div class="flex justify-between  mt-1">
+          <p class="text-gray-400 text-sm">CGST </p>
+          <p class="text-gray-400  text-sm">₹ {{totalgst /2 }}</p>
+        </div>
+        <div class="flex justify-between  mt-1">
+          <p class="text-gray-400 text-sm">SGST </p>
+          <p class="text-gray-400  text-sm">₹ {{totalgst /2}}</p>
+        </div>
+        <!-- <div class="flex justify-between  mt-1">
+          <p class="text-gray-400 text-sm">Shipping charge</p>
+          <p class="text-gray-400  text-sm">₹ {{shippingcharge}}</p>
+        </div> -->
+  
+        <div class="flex justify-between border-b border-gray-100  mt-1">
+          <p class="text-gray-400 text-sm">Delivery charges</p>
+          <p class="text-gray-400  text-sm">₹ {{shippingcharge}}</p>
+        </div>
+  
+        <div class="flex justify-between  mt-1">
+          <p class=" font-bold text-base" style="color: #06a058;">Total Amount</p>
+          <p class=" font-bold text-base" style="color: #06a058;">₹  {{totalamount - coupandiscount + shippingcharge}} </p>
+          <!-- <p class=" font-bold text-base" style="color: #06a058;">₹ {{totalamount}}</p> -->
+        </div>
+      </div>
+
+      <ion-col size="12" class="mt-2">
+        <button align="center" style="background-color: #06a058; " type="button" (click)="orderconfirm()"
+          class="w-full text-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-4  dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2">
+         Confirm Order
+        </button>
+      </ion-col>
+
+
+    </div>
+
+  </div>
+
+  <ion-modal
+  #modal
+  
+  [isOpen]="istermstmodal"
+  [initialBreakpoint]="0.95"
+  [breakpoints]="[0, 0.45, 0.5, 0.95]"
+>
+  <ng-template>
+    <ion-content >
+      <br><br><br>
+      <ion-radio-group [(ngModel)]="selectedItemId" (ionChange)="onRadioChange()">
+        <ion-item *ngFor="let item of items">
+          <ion-radio [value]="item.id"></ion-radio>&nbsp;&nbsp;&nbsp;
+          <ion-label
+            ><span class="text-value-b mt-2" style="white-space: normal"
+              >{{ item.name }}</span
+            ></ion-label
+          >
+        </ion-item>
+      </ion-radio-group><br><br>
+      <ion-col align="center">
+        <button align="center" style="background-color: #06a058; " type="button" (click)="submit()"
+          class=" text-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-4  dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2">
+         Confirm Order
+        </button>
+      </ion-col>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+</ion-content>

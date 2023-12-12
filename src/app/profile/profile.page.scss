@@ -1,0 +1,53 @@
+// .carttoolbar{
+    
+//     --background: linear-gradient(90deg, #06a058 0%, #06a058 100%);
+  
+// }
+
+// .imgg{
+//     display: block;
+//     width: 100px;
+//     height: 100px;
+//     object-fit: cover;
+//     object-position: center center;
+//     border-radius: 65px;
+// }
+.text-seg{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    color:#505050;
+  }
+  .textside{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color:#505050;
+  }
+  .textdec{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color:#979797;
+  }
+  .edit{
+    z-index: 1000; position: absolute; margin-top: 8%; left: 16%; transform: translate(-50%, -50%); background-color: #FF0090; color: #fff;
+  }
+  
+.avatar-lg {
+    z-index: 1000;
+    margin-top: -24px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: 4px solid #fff;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: block;
+  }
+  

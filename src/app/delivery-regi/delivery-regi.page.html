@@ -1,0 +1,79 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-black"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Delivery Man Registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <div class="p-5">
+    <div align="center" class="pb-2">
+      <p class="text-sm text-gray-400 text-left">Complete registration process to serve as delivery man in the platform
+      </p>
+    </div>
+
+    <div class="border border-gray-400"></div>
+
+    <div align="center">
+      <div class="p-4">
+        <ion-card style="border: 1px dashed green; border-radius: 10px; height: 50%; width: 50%;" class="p-4">
+          <ion-icon style="color: gray;" name="camera"></ion-icon>
+          <p style="color: gray;" class="mt-2">Upload Profile Picture</p>
+        </ion-card>
+      </div>
+    </div>
+
+    <form class="w-full max-w-lg">
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <ion-row>
+              <ion-col size="12">
+            <div
+              class="flex justify-staer mb-3 peer m-0 block h-[58px] w-full rounded-lg border border-solid border-neutral-400 bg-white bg-clip-padding px-3 py-4 text-base font-normal">
+              <ion-icon class="text-gray-300"  name="person"></ion-icon> &nbsp;
+              <input type="text" class=" " id="" placeholder="Full Name" />
+            </div>
+          </ion-col>
+
+          <ion-col size="12">
+            <div
+              class="flex justify-staer mb-3 peer m-0 block h-[58px] w-full rounded-lg border border-solid border-neutral-400 bg-white bg-clip-padding px-3 py-4 text-base font-normal">
+              <ion-icon class="text-gray-300"  name="call"></ion-icon> &nbsp;
+              <input type="number" class=" " id="" placeholder="Phone" />
+            </div>
+          </ion-col>
+
+          <ion-col size="12">
+            <div
+              class="flex justify-staer mb-3 peer m-0 block h-[58px] w-full rounded-lg border border-solid border-neutral-400 bg-white bg-clip-padding px-3 py-4 text-base font-normal">
+              <ion-icon class="text-gray-300"  name="mail"></ion-icon> &nbsp;
+              <input type="email" class=" " id="" placeholder="Email" />
+            </div>
+          </ion-col>
+
+          <ion-col size="12">
+            <div
+              class="flex justify-staer mb-3 peer m-0 block h-[58px] w-full rounded-lg border border-solid border-neutral-400 bg-white bg-clip-padding px-3 py-4 text-base font-normal">
+              <ion-icon class="text-gray-300"  name="lock-closed"></ion-icon>
+              <input type="password" class=" " id="" placeholder="Password" />
+              <!-- <ion-icon class="text-gray-300 text-right" name="eye"></ion-icon> -->
+            </div>
+          </ion-col>
+
+          <ion-col size="12">
+            <button align="center" style="background-color: #06a058; " type="button"
+              class="w-full text-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-4  dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2">
+              Next
+            </button>
+          </ion-col>
+        </ion-row>
+
+
+
+      </div>
+    </form>
+
+
+  </div>
+</ion-content>

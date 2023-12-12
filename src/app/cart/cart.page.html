@@ -1,0 +1,181 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-app-title">Cart</ion-title>
+    <ion-icon
+      class="pr-3"
+      color="light"
+      style="visibility: hidden"
+      slot="end"
+      name="ellipsis-vertical"
+    ></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" color="light">
+  <div class="p-3">
+
+    <ion-grid>
+      <ion-row >
+        <ion-col size="12">
+          <div class="bg-white shadow-md rounded-md  p-1">
+            <ion-row *ngFor="let item of cartlist" class="border-b border-gray-400">
+              <ion-col size="3" class="flex items-center">
+                <img width="100" *ngIf="item.product_image" style="height: 5.5rem"   src="{{this.imageurl+'/product/'+item.product_image.split(',')[0] }}" alt="">
+                <img width="100" *ngIf="!item.product_image" height="100" src=" https://annapurnafarms.net/images/zummXD2dvAtI.png" alt="">
+           
+              </ion-col>
+
+              <ion-col szie="9">
+                <ion-label class="text-black text-sm font-semibold ">{{item.product_name}} <span
+                    class="bg-green-50 text-green-300 text-xs p-1 rounded-sm">{{item.category_name}}</span></ion-label>
+                <div class="flex justify-between">
+                  <!-- <p class="text-gray-400 text-xs">Online Market | (kg) </p> -->
+                  <div>
+                    <p>
+                      <ion-icon class="text-gray-300 text-xs" name="star"></ion-icon>
+                      <ion-icon class="text-gray-300 text-xs" name="star"></ion-icon>
+                      <ion-icon class="text-gray-300 text-xs" name="star"></ion-icon>
+                      <ion-icon class="text-gray-300 text-xs" name="star"></ion-icon>
+                    </p>
+                  </div>
+                  <div>
+                    <span><ion-icon style="font-size: 10px;" (click)="removeitem(item.product_id)"
+                        class="border  border-red-600 rounded-full p-1 text-red-600" name="trash"></ion-icon></span>
+                    <span style="font-size: 15px;" class="p-1 pl-1 pr-1">{{item.product_qty}}</span>
+                    <span><ion-icon style="font-size: 10px;"  (click)="addtocard(item)"
+                        class="text-white border border-green-600 rounded-full p-1 bg-green-600"
+                        name="add"></ion-icon></span>
+                  </div>
+                </div>
+
+
+                <div class="flex justify-between">
+                  <!-- <p class="text-md font-semibold text-black" *ngIf="guestid>0">₹{{ item.product_price +  (item.product_price * item.tax_percent / 100) }} </p> -->
+                  <p class="text-md font-semibold text-black" *ngIf="guestid>0">₹{{ item.product_price }} </p>
+                
+                  <p class="text-md font-semibold text-black" *ngIf="guestid==0">₹ </p>
+                </div>
+
+                <!-- <div class="flex justify-between">
+                  <p class="text-sm font-semibold text-black">Variations : <span
+                      class="text-gray-400 font-normal text-xs">Color -Light Blue</span></p>
+                </div> -->
+              </ion-col>
+             
+            </ion-row>
+            <hr>
+          </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+  </div>
+
+  <div class="border-b border-gray-400">
+  <p style="color: #06a058;" class="text-sm font-semibold pl-2"  >
+    
+    Click to apply coupan</p>
+</div>
+  <div class="p-2">
+    <div class="p-1" >
+      <ion-grid>
+        <ion-row *ngFor="let item of Coupondata" >
+          <ion-col size="12" (click)="applaycoupan(item)" >
+    
+            <div class="bg-white shadow-md rounded-md  p-2" [ngClass]="{ 'selected-category': item.id === selectedCategoryId }">
+              <ion-row>
+                <!-- <ion-col size="3" class="flex items-center">
+                    <img width="100" height="100" src="assets/c1.png" alt="">
+                </ion-col> -->
+    
+                <ion-col szie="10">
+                 
+                  <ion-label class="text-black text-sm font-semibold truncate">Code: {{item.code}}</ion-label>
+                  <p class="text-gray-400 text-xs">Expired date : {{item.expired_date}}</p>
+                  
+                  <!-- <p>
+                    <ion-icon class="text-gray-300 text-xs" name="star"></ion-icon>
+                    <ion-icon class="text-gray-300 text-xs" name="star"></ion-icon>
+                    <ion-icon class="text-gray-300 text-xs" name="star"></ion-icon>
+                    <ion-icon class="text-gray-300 text-xs" name="star"></ion-icon>
+                  </p> -->
+                  <div class="flex justify-between">
+                    <p class="text-md font-semibold text-black" *ngIf="item.type=='percentage'">Discount amount {{item.amount}} %</p>
+                    <p class="text-md font-semibold text-black" *ngIf="item.type=='fixed'">Discount amount  ₹ {{item.amount}}  </p>
+                   
+                    <!-- <ion-icon style="color: #06a058;" class="text-2xl" name="add-circle"></ion-icon> -->
+                  </div>
+                </ion-col>
+                <ion-col size="2">
+                  <img class="w-12 h-12 " src="assets/offer.png" alt="Rounded profile">
+                </ion-col>
+              </ion-row>
+    
+            </div>
+    
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div>
+      <p style="color: #06a058;" class="text-sm font-semibold pl-2" routerLink="/user-dashboard" > <ion-icon name="add-circle-outline"></ion-icon> Add
+        More Items</p>
+    </div>
+
+    <!-- <div class="flex justify-between border border-green-600 rounded-sm mt-3 p-2">
+      <p>If any product is not available </p>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div> -->
+
+    <div class="flex justify-between
+     mt-2 pr-1">
+      <p class="text-xs ">Item Price </p>
+     <p  class="text-xs " *ngIf="guestid>0">₹ {{itempriceone}}</p>
+     <p  class="text-xs " *ngIf="guestid==0">₹ </p>
+    </div>
+
+    <div class="flex justify-between
+     mt-2 pr-1">
+      <p  class="text-xs ">Discount</p>
+     <p  class="text-xs "  *ngIf="guestid>0">(-) ₹{{coupandiscountone}}</p>
+     <p  class="text-xs "  *ngIf="guestid==0">(-) ₹</p>
+    </div>
+    <div class="flex justify-between
+    mt-2 pr-1">
+     <p  class="text-xs ">Gst</p>
+    <p  class="text-xs "  *ngIf="guestid>0"> ₹ {{totalgst}} </p>
+    <p  class="text-xs "  *ngIf="guestid==0"> ₹  </p>
+   </div>
+
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="carttoolbar">
+    <div class="flex justify-start p-2" style="visibility: hidden;">
+      <p style="color: #06a058;" class="text-sm font-semibold pl-2">₹ 0</p>
+      <p  class="text-xs text-gray-400 font-semibold pl-2">more for free delivery</p>
+    </div>
+    <div class="p-2">
+      <div class="border-2 border-green-100"></div>
+    </div>
+    <div class="flex justify-between p-2">
+      <p style="color: #06a058;" class="text-sm font-semibold pl-2"> Subtotal</p>
+      <p style="color: #06a058;" class="text-sm font-semibold pl-2" *ngIf="guestid>0">₹{{itemprice}} </p>
+      <p style="color: #06a058;" class="text-sm font-semibold pl-2" *ngIf="guestid==0">₹ </p>
+    </div>
+   <div class="ol-2 pr-2 pb-2">
+
+  <button align="center" style="background-color: #06a058; " *ngIf="guestid>0" type="button" (click)="checkout()"
+    class="w-full text-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-4  dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2">
+    Proceed to Checkout
+  </button>
+   </div>
+  </ion-toolbar>
+</ion-footer>

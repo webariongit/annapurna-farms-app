@@ -1,0 +1,277 @@
+<!-- <ion-header  [translucent]="true" style="  color: white; border-radius: 0 0 25px 25px;"> -->
+  <!-- <ion-toolbar class="carttoolbar"  class="p-6 flex items-center" style="   border-radius: 0 0 25px 25px;"> -->
+
+    <!-- <ion-grid class="mt-8">
+      <ion-row>
+        <ion-col size="5" (click)="openGallery()">
+          <img class="imgg" style="  display: block;
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+          object-position: center center;
+          border-radius: 65px;" [src]="profilePic" *ngIf="profilePic">
+          <img class="w-12 h-12 rounded-full" *ngIf="!profilePic" src="assets/profile.png" alt="Rounded profile">
+        </ion-col>
+        <ion-col size="7">
+          <div class="pl-3">
+            <p style="color: white;">{{name}}</p>
+            <p>{{date | date: 'mediumDate'}} </p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+  <!-- </ion-toolbar> -->
+<!-- </ion-header> -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-app-title">Profile</ion-title>
+   
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" color="light">
+  <div class="flex justify-end">
+    <!-- <div
+    (click)="openGallery('b')"
+      style="z-index: 1000; position: absolute"
+      class="bg-pink-50 rounded-sm p-1 text-pink-600 text-sm p-2"
+    >
+      <ion-icon name="create-outline" ></ion-icon> Edit Profile
+    </div> -->
+  </div>
+  <img  style="height: 40%;"
+  *ngIf="backprofilepic"
+  class="object-fill object-covers w-full h-70"
+    [src]="backprofilepic" 
+    alt=""
+   
+  />
+  <img   *ngIf="!backprofilepic"
+    class="object-fill object-covers w-full"
+    style="height: 152px"
+    src="assets/profile-bg.jpg"
+    alt=""
+  />
+  <!-- <img *ngIf="!item.img_logo" class="object-fill object-covers w-full" style="height: 152px;" src="assets/img/profile-banner.png" alt=""> -->
+  <div class="px-4 border-b border-gray-300">
+    <div class="flex" (click)="openGallery('p')">
+      <div>
+        <img 
+        *ngIf="profilePic"
+          class="avatar-lg"
+          [src]="profilePic" 
+          alt=""
+         
+        />
+       
+          <img class="w-12 h-12 rounded-full" *ngIf="!profilePic" src="assets/avatar.png" alt="Rounded profile">
+       
+      </div>
+
+      <!--<ion-icon name="create" class="p-1 rounded-full text-xs edit" ></ion-icon>-->
+
+      <div class="ml-3 pt-1" align="left">
+        <ion-label class="text-h4"> {{name}} </ion-label>
+        <p class="sm-txt">{{date | date: 'mediumDate'}}</p>
+       
+      </div>
+    </div>
+</div>
+  <div class="p-3">
+
+    <div class="p-1 bg-white rounded-lg shadow-md">
+      <div >
+
+        <ion-item lines="inset" routerLink="/profile-edit">
+          <ion-icon class="text-sm" name="person-outline"></ion-icon>&nbsp;
+          <ion-label>Profile</ion-label>
+        </ion-item>
+
+        <ion-item lines="inset" (click)="openmodal()">
+          <ion-icon class="text-sm" name="key-outline"></ion-icon>&nbsp;
+          <ion-label>Change Password</ion-label>
+        </ion-item>
+
+        <ion-item lines="inset" (click)="logout()">
+          <ion-icon class="text-sm" name="log-out-outline"></ion-icon>
+          <ion-label>Logout</ion-label>
+        </ion-item>
+
+      </div>
+    </div>
+    <div class="flex justify-between p-1 mt-2">
+      <p style="color: #06a058;" class="text-sm font-semibold pr-2"> Help & Support</p>
+    </div>
+
+    <div class="p-1  bg-white rounded-lg shadow-md">
+      <div>
+
+        <!-- <ion-item lines="inset">
+          <ion-icon class="text-sm" name="chatbubble-ellipses-outline"></ion-icon>&nbsp;
+          <ion-label>Live Chat</ion-label>
+        </ion-item> -->
+
+        <ion-item lines="inset"  href="https://annapurnafarms.net/public/documents/help.pdf">
+          <ion-icon class="text-sm" name="call-outline"></ion-icon>&nbsp;
+          <ion-label> Help & Support</ion-label>
+        </ion-item>
+
+        <ion-item lines="inset" href="https://annapurnafarms.net/public/documents/about.pdf">
+          <ion-icon class="text-sm" name="person-outline"></ion-icon>&nbsp;
+          <ion-label> About Us</ion-label>
+        </ion-item>
+
+        <ion-item lines="inset" href="https://annapurnafarms.net/public/documents/terms.pdf">
+          <ion-icon class="text-sm" name="reader-outline"></ion-icon>&nbsp;
+          <ion-label> Terms And Conditions</ion-label>
+        </ion-item>
+
+        <ion-item lines="inset" href="https://annapurnafarms.net/public/documents/policy.pdf">
+          <ion-icon class="text-sm" name="reader-outline"></ion-icon>&nbsp;
+          <ion-label> Privacy Policy</ion-label>
+        </ion-item>
+
+        <ion-item lines="inset" href="https://annapurnafarms.net/public/documents/refund.pdf">
+          <ion-icon class="text-sm" name="reload-circle-outline"></ion-icon>&nbsp;
+          <ion-label> Refund Policy</ion-label>
+        </ion-item>
+
+        <ion-item lines="inset" href="https://annapurnafarms.net/public/documents/cancelation.pdf">
+          <ion-icon class="text-sm" name="alert-circle-outline"></ion-icon>&nbsp;
+          <ion-label>Cancellation Policy</ion-label>
+        </ion-item>
+
+        <!-- <ion-item lines="inset">
+          <ion-icon class="text-sm" name="alert-circle-outline"></ion-icon>&nbsp;
+          <ion-label>Language</ion-label>
+        </ion-item> -->
+        <!-- <ion-item lines="inset" (click)="logout()">
+          <ion-icon class="text-sm" name="alert-circle-outline"></ion-icon>&nbsp;
+          <ion-label>Logout</ion-label>
+        </ion-item> -->
+      </div>
+    </div>
+
+
+    <div class="flex justify-between p-1 mt-2">
+      <p style="color: #06a058;" class="text-sm font-semibold pr-2"> Promotional Activity</p>
+    </div>
+
+    <div class="p-1 bg-white rounded-lg shadow-md">
+      <div >
+
+        <ion-item lines="inset"  routerLink="/coupon">
+          <ion-icon class="text-sm" name="chatbubble-ellipses-outline"></ion-icon>&nbsp;
+          <ion-label>Coupon</ion-label>
+        </ion-item>
+
+        <ion-item lines="inset">
+          <ion-icon class="text-sm" name="call-outline"></ion-icon>&nbsp;
+          <ion-label> Loyalty Points</ion-label>
+          <p class="text-white text-xs bg-red-400 p-1 rounded-full">₹ 0 points</p>
+        </ion-item>
+
+        <ion-item lines="inset">
+          <ion-icon class="text-sm" name="person-outline"></ion-icon>&nbsp;
+          <ion-label>My Wallet</ion-label>
+          <p class="text-white text-xs bg-red-400 p-1 rounded-full">₹ 0.00</p>
+        </ion-item>
+
+      </div>
+    </div>
+
+
+    <div class="flex justify-between p-1 mt-2">
+      <p style="color: #06a058;" class="text-sm font-semibold pr-2"> Earnings</p>
+    </div>
+
+    <div class="p-1 bg-white rounded-lg shadow-md rounded-md">
+      <div>
+
+        <ion-item lines="inset">
+          <ion-icon class="text-sm" name="people-outline"></ion-icon>&nbsp;
+          <ion-label>Refer & Earn</ion-label>
+        </ion-item>
+      </div>
+    </div>
+  </div>
+    <!-- //Modal Code -->
+    <ion-modal
+    #modal
+    [isOpen]="isModalOpen"
+    [initialBreakpoint]="0.75"
+    [breakpoints]="[0, 0.45, 0.5, 0.75]"
+  >
+    <ng-template>
+      <ion-content class="p-5" >
+        <div class="p-6">
+          <form [formGroup]="Userform" (ngSubmit)="changepass()">
+            <div class="flex flex-wrap -mx-3 mb-6">
+              <ion-row>
+                <ion-col>
+                  <div align="center" class="p-10">
+                    <!-- <img  height="80%"  src="assets/logo.png" alt="" style="width: 13rem;"><br> -->
+                    <ion-label class="font-bold text-black text-lg">Create new password</ion-label>
+                  </div>
+                </ion-col>
+      
+                <ion-col size="12" class="-mt-4">
+                  <div
+                    class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+                    <ion-icon class="text-gray-300 mt-4 pl-3" name="lock-closed"></ion-icon> &nbsp;
+                    <ion-item lines="none">
+                      <ion-input placeholder="Password"   formControlName="password"
+                      [(ngModel)]="userdata.confirmPassword"
+                      name="confirmPassword"></ion-input>
+                    </ion-item>
+                  </div>
+                </ion-col>
+      
+                <ion-col size="12">
+                  <div
+                    class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+                    <ion-icon class="text-gray-300 mt-4 pl-3" name="lock-closed"></ion-icon>
+                    <ion-item lines="none">
+                      <ion-input placeholder="Confirm Password"  formControlName="password"
+                    
+                      [(ngModel)]="userdata.password"
+                      name="password"></ion-input>
+                    </ion-item>
+                  </div>
+                </ion-col>
+      
+                <ion-note *ngIf="ispasswordconfirm" color="danger"
+          >Passwords do not match. Please reenter.</ion-note
+        >
+      
+      
+                <ion-col size="12" class="mt-2">
+                  <button align="center" style="background-color: #06a058; " type="submit"
+                    class="w-full text-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-4  dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2">
+                   Submit
+                  </button>
+                </ion-col>
+      
+      
+                <!-- <ion-col size="12" class="mt-5">
+                  <div align="center">
+                    <p class="text-sm text-gray-500"><span>Join as a</span>&nbsp;<span class="text-black font-semibold text-sm">Delivery Man</span></p>
+                  </div>
+                </ion-col> -->
+              </ion-row>
+      
+      
+      
+            </div>
+          </form>
+      
+      
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+</ion-content><br><br><br>
+<app-footer></app-footer>

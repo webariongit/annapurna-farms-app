@@ -1,0 +1,28 @@
+<div class="flex justify-between footer_div footerfix p-3">
+  <div [class.active]="activeTab === 'home'"  (click)="onItemClick('home')">
+    <ion-icon name="home" size="small"></ion-icon>
+  </div>
+  <div [class.active]="activeTab === 'heart'"  (click)="onItemClick('heart')">
+    <ion-icon name="heart" size="small"></ion-icon>
+  </div>
+  <!-- [class.clicked]="isItemClicked('cart')" -->
+  <div [class.active]="activeTab === 'cart'"   (click)="onItemClick('cart-tab')"> 
+ <div>
+
+  <ion-icon 
+  class="cart-tab bg-white rounded-full shadow-md" name="cart" size="small">
+</ion-icon>
+<p  class="cart-tabcount shadow-md " style="       background: #4e7147;
+border-radius: 55px; transform: translate(18px, -17px)">{{cartlistcount}}</p>
+ </div>
+ 
+   
+  </div>
+   <!-- <p style="transform: translate(9px, -11px);">{{cartlistcount}}</p> -->
+  <div [class.active]="activeTab === 'bag'" (click)="onItemClick('bag')">
+    <ion-icon name="bag" size="small"></ion-icon>
+  </div>
+  <div [class.active]="activeTab === 'menu'" (click)="onItemClick('menu')">
+    <ion-icon name="menu" size="small"></ion-icon>
+  </div>
+</div>

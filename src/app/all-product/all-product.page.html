@@ -1,0 +1,102 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-app-title">Products</ion-title>
+    <ion-icon
+      class="pr-3"
+      color="light"
+      style="visibility: hidden"
+      slot="end"
+      name="ellipsis-vertical"
+    ></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" scrollY="true">
+  <br>
+  <div class="side">
+    <div >
+      <ion-row *ngFor="let cat of category" >
+        <ion-col size="12"  >
+          <div class="boxx"  [ngClass]="{ 'selected-category': cat.category_id === selectedCategoryId }">
+          <div class="rounded-md bg-white w-full border border-gray-100 shadow-md text-center" (click)="getproductlist(cat.category_id)">
+              <img width="80" *ngIf="cat.category_image"  height="80" src="{{this.imageurl+'/category/'+cat.category_image}}" alt="">
+              <img width="100" *ngIf="!cat.category_image"  height="100" src=" https://annapurnafarms.net/images/zummXD2dvAtI.png" alt="">
+              <p style=" font-size: xx-small;" class="text-xs p-1">{{cat.category_name}}</p>
+          </div></div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <br><br>
+  </div>
+  <div class="main">
+  <div class="flex justify-between p-1">
+    <ion-label class="text-black font-bold text-md pl-2">List of products</ion-label>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <p *ngIf="ispasswordconfirm" style="text-align: center;padding: 4rem;">No Product Found</p>
+      <ion-col size="6" *ngFor="let item of product" class="mb-2">
+        <div class="rounded-md bg-white w-full border border-gray-100 shadow-md " style="min-height: 105%;" >
+          <div align="center" class="p-1 mt-4" (click)="gotoproductdetails(item)">
+            <!-- <img width="100" height="100" src="{{this.imageurl+'/product/'+item.product_image}}" alt=""> -->
+            <img width="100" *ngIf="item.product_image"   height="100" src="{{this.imageurl+'/product/'+item.product_image.split(',')[0] }}" alt="">
+            <img width="100" *ngIf="!item.product_image" height="100" src=" https://annapurnafarms.net/images/zummXD2dvAtI.png" alt="">
+       
+          </div>
+          <p style="z-index: 1; position: absolute;; top: 4px; left: 10px; 
+          background-color: #06a058; color: #fff; font-size: x-small;"
+            class="mt-2 p-1 rounded-tr-md rounded-br-md">0.0 % OFF</p>
+          <p style="z-index: 1; position: absolute; top: 4px; right: 10px;" class="text-sm mt-2">
+            <ion-icon style="color: #06a058;" class="text-2xl" name="heart-outline"
+             (click)="addtocard(item,'fav')"></ion-icon>
+
+              </p>
+
+         
+         
+          <div class="flex" style="width:100%;">
+              <div style="width:86%;float: left;padding-left: 12px;">
+                  <p class="text-black text-sm font-semibold truncate">{{item.product_name}}</p>
+                  <p class="text-gray-400 text-sm truncate">{{item.category_name}}</p>
+                  <!-- <p class="text-gray-400 text-sm">(Ltr)</p> -->
+                  <div *ngIf="guestid>0">
+                    <!-- <ng-container [ngSwitch]="item.product_price"> -->
+                      
+                      <p *ngIf="item.product_promotion_price > 0 "  class="text-md font-semibold text-black" >
+                      <s *ngIf="item.product_promotion_price > 0 " style="font-size: x-small;color:green">₹{{item.product_price}}</s>
+                        <br>
+                        ₹{{item.product_promotion_price}}
+                      </p> 
+                    
+                      <p *ngIf="item.product_promotion_price == null || 0" class="text-md font-semibold text-black" >₹{{item.product_price}}</p>
+                   
+                    <!-- </ng-container> -->
+                   
+                  </div>
+                  <!-- <p class="text-md font-semibold text-black" *ngIf="guestid>0">₹{{item.product_price}}</p> -->
+                  <p class="text-md font-semibold text-black" *ngIf="guestid==0">₹ </p>
+              </div>
+              <div class="pr-10 mt-10">
+                <p style="position: absolute; bottom: 2px; right: 13px; background-color: #06a058; color: #fff; "
+               
+            class="p-1 rounded-tl-lg rounded-br-lg">
+            <ion-icon  class="text-xl" name="cart-outline" (click)="addtocard(item,'cart')"></ion-icon>
+
+          </p>
+        </div>
+           </div>
+        </div>
+
+      </ion-col>
+
+     
+    </ion-row>
+  </ion-grid>
+</div>
+</ion-content>
+<br><br>
+<app-footer></app-footer>

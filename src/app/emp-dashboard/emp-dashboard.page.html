@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>emp-dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div  class="p">
+    
+    <ion-row >
+      <ion-col size="6" (click)="route('create')">
+        
+        <div style="background-color: #1bd9ab;" align="center" class="rounded-md shadow-md w-full p-3">
+          
+          <img    src="assets/writing.png" alt=""  style="    max-width: 25%">
+          <p class="text-lg font-bold text-white mt-1">Create Retailer</p>
+        </div>
+      </ion-col>
+
+      <ion-col size="6" (click)="route('list')">
+        <div style="background-color: #06bad3;" align="center" class="rounded-md shadow-md w-full p-3">
+          <img    src="assets/list.png" alt=""  style="    max-width: 25%">
+          <p class="text-lg font-bold text-white mt-1">List Retailer</p>
+        </div>
+      </ion-col>
+
+      <ion-col size="6" (click)="route('kpi')">
+        <div style="background-color: #039d55;" align="center" class="rounded-md shadow-md w-full p-3">
+          <img    src="assets/kpi.png" alt=""  style="    max-width: 25%">
+          <p class="text-lg font-bold text-white mt-1">KPI</p>
+        </div>
+      </ion-col>
+
+      
+ 
+    </ion-row>
+
+
+  </div>
+</ion-content>

@@ -1,0 +1,63 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import '@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+//@import "~bootstrap/dist/css/bootstrap.min.css";
+/* styles.scss or styles.css */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+@font-face {
+  font-family: Poppins;
+  src: url(assets/fonts/Poppins-Regular.ttf);
+}
+
+* {
+  font-family: Poppins;
+  font-style: normal;
+}
+ion-toolbar {
+  //  --background: linear-gradient(90deg, #1b8dd4 0%, #1b8dd4 100%);
+    --background: linear-gradient(90deg, #06a058 0%,  #06a058 100%);
+   
+    color: white;
+  }
+
+  .font-p{
+    font-family: "Poppins";
+  }
+
+  .font-h{
+    font-family: "Poppins";
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .background-image {
+    background-image: url("/assets/splashh.jpg");
+  //  background-size: cover; /* Adjust the size of the image to cover the container */
+    background-position: center; /* Center the image horizontally and vertically */
+    height: 100%; /* Set the height to occupy the full height of the parent container */
+   // padding: 2rem;
+  }

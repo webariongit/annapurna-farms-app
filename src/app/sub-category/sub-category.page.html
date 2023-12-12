@@ -1,0 +1,41 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-app-title">Sub category</ion-title>
+    <ion-icon
+      class="pr-3"
+      color="light"
+      style="visibility: hidden"
+      slot="end"
+      name="ellipsis-vertical"
+    ></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  
+<ion-content [fullscreen]="true">
+  <br>
+  <div class="flex justify-between p-1">
+    <ion-label class="text-black font-bold text-md pl-2">List of Sub category</ion-label>
+  </div>
+  <div class="sidebar">
+   
+    <div size="3">
+      <ion-row *ngFor="let cat of category" size="3">
+        <ion-col size="3" >
+          <div class="rounded-md bg-white w-full border border-gray-100 shadow-md text-center" >
+              <img width="80" *ngIf="cat.category_image" (click)="gotoallproduct(cat.category_id)" height="80" src="{{this.imageurl+'/category/'+cat.category_image}}" alt="">
+              <img width="100" *ngIf="!cat.category_image" (click)="gotoallproduct(cat.category_id)" height="100" src=" https://annapurnafarms.net/images/zummXD2dvAtI.png" alt="">
+              
+              <p style="background-color: #06a058; color: #fff; font-size: xx-small;" class="text-xs p-1">{{cat.category_name}}</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+  <app-All-ProductPage></app-All-ProductPage>
+</ion-content>
+<app-footer></app-footer>

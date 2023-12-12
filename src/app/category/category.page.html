@@ -1,0 +1,65 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-app-title font-p">Category</ion-title>
+    <ion-icon
+      class="pr-3"
+      color="light"
+      style="visibility: hidden"
+      slot="end"
+      name="ellipsis-vertical"
+    ></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+  
+<ion-content [fullscreen]="true">
+  <br>
+  <div class="flex justify-between p-1" >
+    <ion-label class="text-black  text-md pl-2 font-p" style="font-size: 16px; font-weight: bold;">List of Category</ion-label>
+  </div>
+  <ion-grid>
+    <!-- <ion-row >
+      <ion-col class="pt-1 mb-2 card1" size="4" *ngFor="let cat of category">
+        <div class="text-center" (click)="gottosubcategory(cat.category_id)">
+            <img width="120"  *ngIf="cat.category_image" height="100" src="{{this.imageurl+'/category/'+cat.category_image}}" alt="">
+            <img width="100" *ngIf="!cat.category_image" height="100" src=" https://annapurnafarms.net/images/zummXD2dvAtI.png" alt="">
+             
+            <p  class="text-xs p-1">{{cat.category_name}}</p>
+        </div>
+      </ion-col>
+    </ion-row> -->
+    <ion-row>
+      <!-- Actual content when data is loaded -->
+
+      <ion-col
+        size="6"
+        class="pt-1 mb-2"
+        *ngFor="let cat of category"
+      >
+        <div
+          class="card1 bg-white relative transition duration-500"
+          (click)="gottosubcategory(cat.category_id)"
+        >
+          <img
+            class="rounded-t-lg w-full object-cover dashb2"
+            src="{{this.imageurl+'/category/'+cat.category_image}}" 
+            alt=""
+          />
+          <div class="px-4 rounded-lg bg-white">
+            <ion-card-title class="text-xs p-2 font-p"  style="font-weight: bold; text-align: center;">
+              {{cat.category_name}}</ion-card-title  >
+           
+          </div>
+         
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<br><br><br>
+<app-footer></app-footer>

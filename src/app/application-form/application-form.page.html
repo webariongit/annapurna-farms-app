@@ -1,0 +1,261 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-black"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-title>Forgot Password</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <div class="p-5">
+   
+
+  
+    <form class="w-full max-w-lg" [formGroup]="Userform" (ngSubmit)="submit()">
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <ion-row>
+            
+          <ion-col size="12" class="-mt-4">
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-item lines="none">
+                <ion-input placeholder="Shop Name"   formControlName="company_name" type="text"
+                [(ngModel)]="userdata.company_name"
+                name="company_name"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12" >
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-item lines="none">
+                <ion-input placeholder="customer name"   formControlName="customer_name" type="text"
+                [(ngModel)]="userdata.customer_name"
+                name="customer_name"></ion-input>
+                
+              </ion-item>
+              <input  type="text" id="imgdata" style="display: none;"/>
+            </div>
+          </ion-col>
+          <ion-col size="12" >
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-item lines="none">
+                <ion-input placeholder="email"   formControlName="email" type="text"
+                [(ngModel)]="userdata.email"
+                name="email"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12" >
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-item lines="none">
+                <ion-input placeholder="Phone Number"   formControlName="phone_number" type="text"
+                [(ngModel)]="userdata.phone_number"
+                name="phone_number"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12" >
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-item lines="none">
+                <ion-input placeholder="Tax Number"   formControlName="tax_no" type="text"
+                [(ngModel)]="userdata.tax_no"
+                name="tax_no"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12" >
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-item lines="none">
+                <ion-input placeholder="Address "   formControlName="address" type="text"
+                [(ngModel)]="userdata.address"
+                name="address"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12" >
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-item lines="none">
+                <ion-input placeholder="City"   formControlName="city" type="text"
+                [(ngModel)]="userdata.city"
+                name="city"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12" >
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-item lines="none">
+                <ion-input placeholder="state"   formControlName="state" type="text"
+                [(ngModel)]="userdata.state"
+                name="state"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12" >
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-item lines="none">
+                <ion-input placeholder="postal code"   formControlName="postal_code" type="text"
+                [(ngModel)]="userdata.postal_code"
+                name="postal_code"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12" >
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-item lines="none">
+                <ion-input placeholder="Country"   formControlName="country" type="text"
+                [(ngModel)]="userdata.country"
+                name="country"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12" >
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-item lines="none">
+                <ion-input placeholder="pan"   formControlName="pancard" type="text"
+                [(ngModel)]="userdata.pancard"
+                name="pancard"></ion-input>
+                
+              </ion-item>
+              <ion-item lines="none">
+                <ion-input placeholder="pan"   formControlName="imgpancard" type="file"
+                [(ngModel)]="userdata.imgpancard" (change)="this.onFilechange($event,'imgpancard')"
+                name="imgpancard"></ion-input>
+                
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12" >
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-item lines="none">
+                <ion-input placeholder="Owner Adhaar"   formControlName="adhaarcard" type="text"
+                [(ngModel)]="userdata.adhaarcard" 
+                name="adhaarcard"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-input placeholder="Owner Adhaar"   formControlName="imgadhaarcard" type="file"
+                [(ngModel)]="userdata.imgadhaarcard" (change)="this.onFilechange($event,'imgadhaarcard')"
+                name="imgadhaarcard"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12" >
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-item lines="none">
+                <ion-input placeholder="GST"   formControlName="gstdeclaration" type="text"
+                [(ngModel)]="userdata.gstdeclaration"
+                name="gstdeclaration"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-input placeholder="GST"   formControlName="imggstdeclaration" type="file"
+                [(ngModel)]="userdata.imggstdeclaration" (change)="this.onFilechange($event,'imggstdeclaration')"
+                name="imggstdeclaration"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12" >
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-item lines="none">
+                <ion-input placeholder="FSSAI"   formControlName="fssai" type="text"
+                [(ngModel)]="userdata.fssai"
+                name="fssai"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-input placeholder="FSSAI"   formControlName="imgfssai" type="file"
+                [(ngModel)]="userdata.imgfssai" (change)="this.onFilechange($event,'imgfssai')"
+                name="imgfssai"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12" >
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-item lines="none">
+                <ion-select
+                interface="action-sheet"
+                justify="space-between"
+                label="Select gender"
+                placeholder="Select warehouse"
+                formControlName="warehouse_id"
+                [(ngModel)]="userdata.warehouse_id"
+                #C  (ionChange)="onChange(C.value)"
+              >
+                <ion-select-option *ngFor="let item of wearehouselist"
+                 value="{{item.id}}">{{item.name}}</ion-select-option>
+              
+              </ion-select>
+                <!-- <ion-input placeholder="warehouse"   formControlName="warehouse_id" type="text"
+                [(ngModel)]="userdata.warehouse_id"
+                name="warehouse_id"></ion-input> -->
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size="12" >
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-select
+              interface="action-sheet"
+              justify="space-between"
+              label="Select gender"
+              placeholder="Select warehouse"
+              formControlName="assign_user_id"
+              [(ngModel)]="userdata.assign_user_id"
+             
+            >
+              <ion-select-option *ngFor="let item of assignuserdata"
+               value="{{item.id}}">{{item.name}}</ion-select-option>
+            
+            </ion-select>
+              <!-- <ion-item lines="none">
+                <ion-input placeholder="Assigned User"   formControlName="assign_user_id" type="text"
+                [(ngModel)]="userdata.assign_user_id"
+                name="assign_user_id"></ion-input>
+              </ion-item> -->
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <button align="center" style="background-color: #06a058; " type="submit" 
+              class="w-full text-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-4  dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2">
+              Submit
+            </button>
+          </ion-col>
+        </ion-row>
+
+
+
+      </div>
+    </form>
+
+
+  </div>
+</ion-content>

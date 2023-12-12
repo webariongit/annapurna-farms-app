@@ -1,0 +1,56 @@
+// .rotate-scale-up {
+//   animation: rotate-scale-up 2.5s linear both
+// }
+// @keyframes rotate-scale-up {
+//   0% {
+//     transform: scale(1) rotateZ(0)
+//   }
+
+//   50% {
+//     transform: scale(2) rotateZ(180deg)
+//   }
+
+//   100% {
+//     transform: scale(1) rotateZ(360deg)
+//   }
+// }
+
+// =====================for Text===============
+// .tracking-in-expand-fwd-bottom {
+//   animation: tracking-in-expand-fwd-bottom 1.5s cubic-bezier(.215, .61, .355, 1.000) both
+// }
+// @keyframes tracking-in-expand-fwd-bottom {
+//   0% {
+//     letter-spacing: -.5em;
+//     transform: translateZ(-700px) translateY(500px);
+//     opacity: 0
+//   }
+
+//   40% {
+//     opacity: .6
+//   }
+
+//   100% {
+//     transform: translateZ(0) translateY(0);
+//     opacity: 1
+//   }
+// }
+.rotate-scale-up {
+  height: 100vh;
+  width: 100vw;
+ // animation: zoom-out 2.5s linear both;
+}
+
+.zoom-out {
+  animation: zoom-out 2.5s linear both;
+}
+
+@keyframes zoom-out {
+  0% {
+    transform: scale(2); /* Zoom out at the start */
+  }
+
+  100% {
+    transform: scale(1); /* Return to normal scale at the end */
+  }
+}

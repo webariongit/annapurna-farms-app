@@ -1,0 +1,79 @@
+<ion-content [fullscreen]="true" color="light">
+  <div class="p-6">
+    <form [formGroup]="Userform" (ngSubmit)="signin()">
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <ion-row>
+          <ion-col>
+            <div align="center" class="p-10">
+              <img  height="80%"  src="assets/logo.png" alt="" style="width: 13rem;"><br>
+              <ion-label class="font-bold text-black text-lg">SIGN IN</ion-label>
+            </div>
+          </ion-col>
+
+          <ion-col size="12" class="-mt-4">
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="call"></ion-icon> &nbsp;
+              <ion-item lines="none">
+                <ion-input placeholder="email / Mobile"   formControlName="email"
+                [(ngModel)]="userdata.email"
+                name="email"></ion-input>
+              </ion-item>
+            </div>
+          </ion-col>
+
+          <ion-col size="12">
+            <div
+              class="flex justify-staer peer m-0 block h-[38px] w-full rounded-lg bg-white bg-clip-padding text-base font-normal">
+              <ion-icon class="text-gray-300 mt-4 pl-3" name="lock-closed"></ion-icon>
+              <ion-item lines="none">
+                <ion-input placeholder="Password"  formControlName="password"
+                [type]="showPassword ? 'text' : 'password'"
+                [(ngModel)]="userdata.password"
+                name="password"></ion-input>
+                <ion-button
+                slot="end"
+                fill="clear"
+                (click)="togglePasswordVisibility()"
+              >
+                <ion-icon [name]="showPassword ? 'eye' : 'eye-off'" style="color: #428a3d;"></ion-icon>
+              </ion-button>
+              </ion-item>
+            </div>
+          </ion-col>
+
+          <ion-col align="left" size="6" class="pl-3">
+            <label class="material-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+              Remember me
+            </label>
+          </ion-col>
+          <ion-col align="right" size="6" class="pr-2" [routerLink]="['/forgot-password']">
+            <p style="color: #06a058;" class="text-sm font-semibold">Forgot Password ?</p>
+          </ion-col>
+
+
+          <ion-col size="12" class="mt-2">
+            <button align="center" style="background-color: #06a058; " type="submit"
+              class="w-full text-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-4  dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2">
+              Sign In
+            </button>
+          </ion-col>
+
+
+          <ion-col size="12" class="mt-5">
+            <div align="center" (click)="Guestlogin()">
+              <p class="text-sm text-gray-500"><span>Continue as a</span>&nbsp;<span class="text-black font-semibold text-sm">Guest</span></p>
+            </div>
+          </ion-col>
+        </ion-row>
+
+
+
+      </div>
+    </form>
+
+
+  </div>
+</ion-content>

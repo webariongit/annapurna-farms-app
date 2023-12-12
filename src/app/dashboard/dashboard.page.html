@@ -1,0 +1,139 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="pl-2 pr-2">
+    <img width="60" height="50" src="assets/logo.jpeg" alt="">
+    <!-- <ion-title sl>dashboard</ion-title> -->
+    <ion-icon slot="end" class="text-md pr-2" name="notifications"></ion-icon> 
+
+    <div slot="end" class="check">
+      <input id="check" type="checkbox">
+      <label for="check"></label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <div class="p-3">
+
+    <div class="text-black text-md font-semibold pt-2 pl-1 pb-2">
+      Active Order
+    </div>
+
+    <div class="bg-white rounded-md shadow-md  p-2">
+      <div class="flex justify-between p-2">
+        <p><span class="text-gray-400 text-xs">Order ID :</span> <span
+            class="text-black text-xs font-semibold">#234567</span></p>
+        <p class="text-xs"><ion-icon class="text-red-600 text-xs" name="stopwatch"></ion-icon>0:0:0</p>
+      </div>
+      <p class="text-black text-xs font-semibold pl-2"> <ion-icon class="text-xs" name="business"></ion-icon>
+        &nbsp;Restaurant Location </p>
+
+      <p class="text-xs text-gray-400 pl-2 mt-1"><ion-icon class="text-xs text-black" name="location"></ion-icon>
+        &nbsp;Lorem ipsum dolor sit, amet.</p>
+
+      <ion-row class="mt-3">
+        <ion-col size="6" align="center">
+          <button style="border: lightgray 1px solid;" type="button"
+            class=" w-full text-black bg-white focus:ring-4 focus:outline-none focus:ring-gray-100 border border-gray-300 font-medium rounded-lg text-sm px-5 py-2.5  mr-2 mb-2">
+            Details
+          </button>
+        </ion-col>
+        <ion-col size="6">
+          <button align="center" style="background-color: #06a058; " type="button"
+            class="w-full text-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5  dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2">
+            <ion-icon name="move"></ion-icon> Direction
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+    <div class="text-black text-md font-semibold pt-2 pl-2 pb-2 mt-2">
+      Earnings
+    </div>
+
+    <div style="background-color: #06a058;" class="rounded-md shadow-md  p-3">
+      <ion-row class="pl-3">
+        <ion-col size="2">
+          <!-- <ion-icon style="font-size: 20px;" name="wallet-outline"></ion-icon> -->
+          <img src="assets/wallet.png" alt="">
+        </ion-col>
+        <ion-col size="10" class="mt-2 pl-2">
+          <p class="text-xs text-gray-100">Balance</p>
+          <p class="text-lg text-white font-semibold">$70.55</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="mt-3 ">
+        <ion-col size="3.5">
+          <div align="center">
+            <p class="text-xs text-gray-100">Total</p>
+            <p class="text-sm text-white mt-1">$70.55</p>
+          </div>
+        </ion-col>
+        <ion-col size="0.5" class="text-gray-100">|</ion-col>
+        <ion-col size="4">
+          <div align="center">
+            <p class="text-xs text-gray-100">This Week</p>
+            <p class="text-sm text-white mt-1">$170.55</p>
+          </div>
+        </ion-col>
+        <ion-col size="0.5" class="text-gray-100">|</ion-col>
+        <ion-col size="3.5">
+          <div align="center">
+            <p class="text-xs text-gray-100">This Months</p>
+            <p class="text-sm text-white mt-1">$700.55</p>
+          </div>
+        </ion-col>
+      </ion-row>
+
+
+    </div>
+
+    <div class="text-black text-md font-semibold pt-2 pl-2 mt-2">
+      Order
+    </div>
+
+    <div  class="p">
+    
+      <ion-row >
+        <ion-col size="6">
+          <div style="background-color: #1bd9ab;" align="center" class="rounded-md shadow-md w-full p-3">
+            <p class="text-2xl text-white font-bold">55</p>
+            <p class="text-lg font-bold text-white mt-1">Todays</p>
+            <p class="text-xs text-gray-100">Orders</p>
+          </div>
+        </ion-col>
+
+        <ion-col size="6">
+          <div style="background-color: #06bad3;" align="center" class="rounded-md shadow-md w-full p-3">
+            <p class="text-2xl text-white font-bold">50</p>
+            <p class="text-lg font-bold text-white mt-1">This week</p>
+            <p class="text-xs text-gray-100">Orders</p>
+          </div>
+        </ion-col>
+
+        <ion-col size="12">
+          <div style="background-color: #039d55;" align="center" class="rounded-md shadow-md w-full p-3">
+            <p class="text-2xl text-white font-bold">35</p>
+            <p class="text-lg font-bold text-white mt-1">Total</p>
+            <p class="text-xs text-gray-100">Orders</p>
+          </div>
+        </ion-col>
+
+        <ion-col size="12">
+          <div style="background-color: #24c869;" align="center" class="rounded-md shadow-md w-full p-3">
+            <p class="text-2xl text-white font-bold">$35</p>
+            <p class="text-xs text-gray-100">Cash In Your Hand</p>
+          </div>
+        </ion-col>
+   
+      </ion-row>
+
+
+    </div>
+
+
+
+  </div>
+</ion-content>
+<app-footer></app-footer>

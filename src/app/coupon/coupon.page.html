@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-app-title">Coupons</ion-title>
+    <ion-icon
+      class="pr-3"
+      color="light"
+      style="visibility: hidden"
+      slot="end"
+      name="ellipsis-vertical"
+    ></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="p-1" >
+    <ion-grid>
+      <ion-row *ngFor="let item of Coupondata" >
+        <ion-col size="12" >
+  
+          <div class="bg-white shadow-md rounded-md  p-2">
+            <ion-row>
+              <!-- <ion-col size="3" class="flex items-center">
+                  <img width="100" height="100" src="assets/c1.png" alt="">
+              </ion-col> -->
+  
+              <ion-col szie="10">
+               
+                <ion-label class="text-black text-sm font-semibold truncate">Code: {{item.code}}</ion-label>
+                <p class="text-gray-400 text-xs">Expired date : {{item.expired_date}}</p>
+                
+                <!-- <p>
+                  <ion-icon class="text-gray-300 text-xs" name="star"></ion-icon>
+                  <ion-icon class="text-gray-300 text-xs" name="star"></ion-icon>
+                  <ion-icon class="text-gray-300 text-xs" name="star"></ion-icon>
+                  <ion-icon class="text-gray-300 text-xs" name="star"></ion-icon>
+                </p> -->
+                <div class="flex justify-between">
+                  <p class="text-md font-semibold text-black" *ngIf="item.type=='percentage'">Discount amount {{item.amount}} %</p>
+                  <p class="text-md font-semibold text-black" *ngIf="item.type=='fixed'">Discount amount  ₹ {{item.amount}}  </p>
+                  <!-- <ion-icon style="color: #06a058;" class="text-2xl" name="add-circle"></ion-icon> -->
+                </div>
+              </ion-col>
+              <ion-col size="2">
+                <img class="w-12 h-12 " src="assets/offer.png" alt="Rounded profile">
+              </ion-col>
+            </ion-row>
+  
+          </div>
+  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <br><br>
+  <p *ngIf="ispasswordconfirm" style="text-align: center;">No Coupons Found</p>
+</ion-content>

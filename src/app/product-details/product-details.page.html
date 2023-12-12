@@ -1,0 +1,169 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Product Details </ion-title>
+    <ion-icon slot="end" style="color: #06a058;" class="text-lg pr-2" name="cart"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <!-- <div class="custom-slider" >
+    <div class="card1  slider-container" (click)="nextSlide()">
+      <img   [src]="currentImage.url" alt="{{ currentImage.alt }}"
+      (error)="currentImage.url = 'https://annapurnafarms.net/images/zummXD2dvAtI.png'" 
+        style="border-radius: 10px"/>
+    </div>
+    
+  </div> -->
+  <div class="p-4" >
+
+    <!-- <div class="custom-slider" >
+      <div class="card1  slider-container"  >
+        <img  [src]="currentImage.url" alt=""  style="border-radius: 10px"/>
+      </div>
+     
+    </div> -->
+    <swiper-container>
+      <swiper-slide *ngFor="let item of productImages">
+        <div class="custom-slider" >
+        <div class="card1  slider-container" >
+        <img class="rounded-md" src="{{item.url}}" alt="First slide">
+      </div></div>
+      </swiper-slide>
+    </swiper-container>
+    <!-- <ng-container *ngIf="product.product_image && product.product_image.trim() !== ''">
+    <div align="center" *ngFor="let image of product.product_image.split(',')">
+      <img width="130" height="130"[src]="imageurl + '/product/' + image"  alt="">
+    </div></ng-container> -->
+
+<div class="main" *ngFor="let item of product">
+    <div class="flex justify-between p-1 mt-2">
+      <div>
+        <ion-label class="text-black font-bold text-lg">
+         {{item.product_name}}
+        </ion-label>
+        <p class="text-sm text-gray-400">{{item.category_name}}</p>
+      </div>
+
+      <div (click)="addtocard(item,'fav')">
+        <ion-icon name="heart-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="flex justify-between p-1">
+      <!-- <div>
+        <ion-label style="color: #06a058;" class="text-lg font-bold">
+          ₹ {{item.product_price  }}
+        </ion-label>
+        <p class="text-sm text-gray-400"><s>$ 300.00</s></p>
+      </div> -->
+      <div *ngIf="guestid>0">
+        <!-- <ng-container [ngSwitch]="item.product_price"> -->
+          
+          <p *ngIf="item.product_promotion_price > 0 "  class="text-md font-semibold text-black" >₹{{item.product_promotion_price}}
+            <s *ngIf="item.product_promotion_price > 0 " style="color:green">₹{{item.product_price}}</s>
+          </p> 
+        
+          <p *ngIf="item.product_promotion_price == null || 0" class="text-md font-semibold text-black" >₹{{item.product_price}}</p>
+       
+        <!-- </ng-container> -->
+       
+      </div>
+      <div>
+        <p class="text-green-600 bg-green-50 rounded-sm text-xs text-sm font-semibold p-1">Pcs</p>
+      </div>
+    </div>
+
+    <div class="flex justify-between p-1">
+      <div>
+        <p class="text-sm text-gray-400">0.0
+          <ion-icon class="text-gray-400 text-xs" name="star"></ion-icon>
+          <ion-icon class="text-gray-400 text-xs" name="star"></ion-icon>
+          <ion-icon class="text-gray-400 text-xs" name="star"></ion-icon>
+          <ion-icon class="text-gray-400 text-xs" name="star"></ion-icon> (0)
+        </p>
+      </div>
+
+      <div>
+        <p style="background-color: #0fbd0c;" class="text-white rounded-sm text-xs text-sm  pl-2 pr-2 pt-1 pb-1">In
+          Stock</p>
+      </div>
+    </div>
+
+
+    <div class="border border-dashed border-gray-300 mt-2"></div>
+
+    <!-- <div class="mt-3">
+      <ion-label
+        class="text-black w-30 hover:text-white bg-white hover:bg-green-600 border border-gray-300 rounded-sm shadowm-md font-semibold p-1 text-sm">
+        Light Blue
+      </ion-label>&nbsp;&nbsp;
+
+      <ion-label
+        class="text-black w-30 hover:text-white bg-white hover:bg-green-600 border border-gray-300 rounded-sm shadowm-md font-semibold p-1 text-sm">
+        Blue
+      </ion-label>
+    </div> -->
+
+    <div class="flex justify-between mt-2">
+      <div>
+        <ion-label class="text-black font-bold text-sm">
+          Quantity
+        </ion-label>
+      </div>
+      <div class="flex justify-around bg-gray-300 rounded-sm shadow-md pl-2 pr-2">
+        <div class="p-1 text-sm font-bold text-black" (click)="decrementQty()">-</div>
+        <div class="p-1 text-sm font-bold text-black">{{ productqty }}</div>
+        <div class="p-1 text-sm font-bold text-black" (click)="incrementQty()">+</div>
+      </div>
+      <!-- <div class="flex justify-around bg-gray-300 rounded-sm shadow-md pl-2 pr-2">
+        <div class="p-1 text-sm font-bold text-black">-</div>
+        <div class="p-1 text-sm font-bold text-black">1</div>
+        <div class="p-1 text-sm font-bold text-black">+</div>
+      </div> -->
+    </div>
+
+
+    <div class="flex justify-start mt-2">
+      <div>
+        <ion-label class="text-black font-bold text-sm">
+          Total Amount : 
+        </ion-label>
+        <div *ngIf="guestid>0">
+           
+            <p *ngIf="item.product_promotion_price > 0 "  class="text-md font-semibold text-black" >₹{{item.product_promotion_price}}
+            </p> 
+            <p *ngIf="item.product_promotion_price == null || 0" class="text-md font-semibold text-black" >₹{{item.product_price}}</p>
+         
+        </div>
+        <!-- <ion-label style="color: #06a058;" class="text-lg font-bold">
+          ₹ {{item.product_price }}
+        </ion-label> -->
+      </div>
+    </div>
+
+    <div class="border border-dashed border-gray-300 mt-2 mb-2"></div>
+    
+    <div>
+      <ion-label class="text-black font-bold text-md mt-2">
+        Description
+      </ion-label>
+      <div class="text-sm text-gray-500 " [innerHTML]="productDetails"></div>
+      <!-- <p class="text-sm text-gray-500 ">
+     
+       </p> -->
+    </div>
+
+    <div class="mt-3" (click)="addtocard(item,'cart')">
+      <button align="center" style="background-color: #06a058; " type="button"
+      class="w-full text-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-4  dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2">
+      Add To Cart
+    </button>
+    </div>
+
+  </div>
+</div>
+</ion-content><br><br><br>
+<app-footer></app-footer>

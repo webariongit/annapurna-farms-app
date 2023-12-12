@@ -1,0 +1,214 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-app-title">Order details</ion-title>
+    <!-- <ion-icon
+   (click)="termsmodal('T')"
+      class="pr-3"
+      color="light"
+     
+      slot="end"
+      name="print-outline"
+    ></ion-icon> -->
+   
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" color="light">
+  
+  
+  <div class="p-3">
+   
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <div class="bg-white shadow-md rounded-md  p-1">
+            <ion-row *ngFor="let item of order">
+              <ion-col size="3" class="flex items-center">
+                <img width="100" *ngIf="item.product_image"   height="100" src="{{this.imageurl+'/product/'+item.image}}" alt="">
+                <img width="100" *ngIf="!item.product_image" height="100" src=" https://annapurnafarms.net/images/zummXD2dvAtI.png" alt="">
+           
+              </ion-col>
+
+              <ion-col szie="9">
+                <ion-label class="text-black text-sm font-semibold truncate">{{item.name}} <span
+                    class="bg-green-50 text-green-300 text-xs p-1 rounded-sm">{{item.category_name}}</span></ion-label>
+                <div class="flex justify-between">
+                  <!-- <p class="text-gray-400 text-xs">Online Market | (kg) </p> -->
+                  <!-- <div>
+                    <p>
+                      <ion-icon class="text-gray-300 text-xs" name="star"></ion-icon>
+                      <ion-icon class="text-gray-300 text-xs" name="star"></ion-icon>
+                      <ion-icon class="text-gray-300 text-xs" name="star"></ion-icon>
+                      <ion-icon class="text-gray-300 text-xs" name="star"></ion-icon>
+                    </p>
+                  </div> -->
+                  <div>
+                    <!-- <span>
+                      <ion-icon style="font-size: 10px;" 
+                        class="border  border-red-600 rounded-full p-1 text-red-600" name="trash"></ion-icon>
+                      </span> -->
+                    <span style="font-size: 15px;" class="p-1 pl-1 pr-1">Pice: {{item.total_qty}}</span>
+                    <!-- <span>
+                      <ion-icon style="font-size: 10px;"  
+                        class="text-white border border-green-600 rounded-full p-1 bg-green-600"
+                        name="add"></ion-icon></span> -->
+                  </div>
+                </div>
+
+
+                <div class="flex justify-between">
+                  <p class="text-md font-semibold text-black">₹{{item.total}}</p>
+                </div>
+
+                <!-- <div class="flex justify-between">
+                  <p class="text-sm font-semibold text-black">Variations : <span
+                      class="text-gray-400 font-normal text-xs">Color -Light Blue</span></p>
+                </div> -->
+              </ion-col>
+             
+            </ion-row>
+            <hr>
+          </div>
+
+        </ion-col>
+        <ion-col size="12" class="mt-4">
+          <button align="center" style="background-color: #06a058; " type="submit"
+            class="w-full text-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-4  dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2">
+            <a [attr.href]="pdfurl" target="_blank" style="color: white;">Download Innovice</a>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+  </div>
+
+  <div class="border-b border-gray-400"></div>
+
+  <div class="p-2">
+  
+
+  
+
+    <!-- <div class="flex justify-between
+     mt-2 pr-1">
+      <p class="text-xs ">Item Price </p>
+    
+    </div> -->
+
+  
+
+
+
+  </div>
+ 
+  <ion-modal
+  #modal
+  
+  [isOpen]="istermstmodal"
+  [initialBreakpoint]="0.95"
+  [breakpoints]="[0, 0.45, 0.5, 0.95]"
+>
+  <ng-template>
+    <ion-content *ngFor="let item of orderinovice">
+      <div style="max-width:400px;margin:0 auto">
+        <div class="hidden-print">
+    <table>
+    <tbody><tr>
+    <!-- <td><a href="../../pos" class="btn btn-info"><i class="fa fa-arrow-left"></i> Back</a> </td> -->
+    <!-- <td><button onclick="window.print();" class="btn btn-primary"><i class="dripicons-print"></i> Print</button></td> -->
+    </tr>
+    </tbody></table>
+    <br>
+    </div>
+    
+    <div id="receipt-data" style="padding: 2rem;">
+      <img src="https://annapurnafarms.net/logo/20220905125905.png" height="100" width="100" style="margin:10px 104px;">
+
+    <div class="centered" style="text-align: center;">
+            
+    <h2>{{item.warehouse_name}}</h2>
+    
+    <p>Address:{{item.warehouse_address}}
+    <br>Phone Number: {{item.warehouse_phone}}
+                    <br>VAT Number: -
+                </p>
+    </div>
+    <p>Date: {{item.sale_date | date:'mediumDate'}}<br>
+    Reference: {{item.reference_no}}<br>
+    Customer: {{item.customer_name}}
+                        
+    </p>
+    <table class="table-data">
+    <tbody>
+                                
+    <!-- <tfoot> -->
+    <tr>
+        <th colspan="2" style="text-align:left">Total</th>
+        <th style="text-align:right">{{item.grand_total}}</th>
+    </tr>
+                    <tr>
+        <td colspan="2">IGST</td>
+        <td style="text-align:right">0.000</td>
+    </tr>
+                                                                                    <tr>
+        <th colspan="2" style="text-align:left">Grand Total</th>
+        <th style="text-align:right">{{item.grand_total}}</th>
+    </tr>
+    <tr>
+                            <!-- <th class="centered" colspan="3">In Words: <span>INR : </span> <span>{{ convertNumberToWords(item.grand_total) }} only</span></th> -->
+                        </tr>
+    </tbody>
+    <!-- </tfoot> -->
+    </table>
+    <table>
+    <tbody>
+                    <tr><td class="centered" colspan="3">Thank you for shopping with us. Please come again</td></tr>
+    <tr>
+        <td class="centered d-none" colspan="3" style="display: none;">
+        <img style="margin-top:10px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATgAAAAeAQMAAACCM5C2AAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAD5JREFUOI1j+MzDfP4Mj80f489/Dn8+zGx/nv+wgY3B5/PMBvZn/tsb/LH5YGB84M95hlF1o+pG1Y2qG2B1AJbwZwHkAd9dAAAAAElFTkSuQmCC" width="300" alt="barcode">                    <br>
+        <img style="margin-top:10px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD8AAAA/AQMAAABtkYKcAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAANRJREFUKJFt0bENgzAQBdCTKOhgA7yIJdYiFZEySFYxC+AV6GgtXQMS8s/ZJhBMXD35W7rPQcDW9C08/YWPcKR9p6k6wdC+1xgj6hu+UdPlOCJX3xAjGSFIsxKkBmPvwzYHYiQHoHQSfNdKxEvA21yAFTAtFlLD5Iga+sUGS2qkYtjUFcrKrNCwqSdetKtOpIjljdHK5gglU8N18t2JcL/OCY5KdwVjFsgSCsxPOiGLKgD2AfTYMsin7VjKVwbsoJrSHzzAFu+4eR4uiDWACNeXbA58AHTiQHIgp7VaAAAAAElFTkSuQmCC" alt="QRcode">    
+        </td>
+    </tr>
+    </tbody>
+    </table>
+    <!-- <div class="centered" style="margin:30px 0 50px">
+    <small>Invoice Generated By Annapurna Farms.
+    Developed By LionCoders</strong></small>
+    </div> -->
+    </div>
+    </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+</ion-content>
+
+<!-- <ion-footer>
+  <ion-toolbar class="carttoolbar">
+    <div class="flex justify-start p-2" style="visibility: hidden;">
+      <p style="color: #06a058;" class="text-sm font-semibold pl-2">₹ 0</p>
+      <p  class="text-xs text-gray-400 font-semibold pl-2">more for free delivery</p>
+    </div>
+    <div class="p-2">
+      <div class="border-2 border-green-100"></div>
+    </div>
+    <div class="flex justify-between p-2">
+      <p style="color: #06a058;" class="text-sm font-semibold pl-2"> Subtotal</p>
+      <p style="color: #06a058;" class="text-sm font-semibold pl-2">₹{{itemprice}}</p>
+    </div>
+   <div class="ol-2 pr-2 pb-2">
+
+    <button align="center" style="background-color: #06a058; " type="button" (click)="checkout()"
+    class="w-full text-white focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-4  dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2">
+    Proceed to Checkout
+  </button>
+   </div>
+  </ion-toolbar>
+</ion-footer> -->
